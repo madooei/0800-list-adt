@@ -1,5 +1,3 @@
-package listadt;
-
 import java.util.Objects;
 
 /**
@@ -9,9 +7,19 @@ import java.util.Objects;
  */
 public class SortedLinkedList<T extends Comparable<T>> implements SortedList<T> {
 
-  private Node<T> head;   // front sentinel
-  private Node<T> tail;   // back sentinel
-  private int size;       // number of real nodes
+  private Node<T> head;  // front sentinel
+  private Node<T> tail;  // back sentinel
+  private int size;  // number of real nodes
+
+  private static class Node<T> {
+    T value;
+    Node<T> next;
+    Node<T> prev;
+
+    Node(T value) {
+      this.value = value;
+    }
+  }
 
   public SortedLinkedList() {
     head = new Node<>(null);
@@ -19,6 +27,21 @@ public class SortedLinkedList<T extends Comparable<T>> implements SortedList<T> 
     head.next = tail;
     tail.prev = head;
     size = 0;
+  }
+
+  @Override
+  public int size() {
+    return size;
+  }
+
+  private Node<T> insertBetween(T value, Node<T> before, Node<T> after) {
+    Node<T> node = new Node<>(value);
+    node.prev = before;
+    node.next = after;
+    before.next = node;
+    after.prev = node;
+    size++;
+    return node;
   }
 
   @Override
@@ -35,7 +58,14 @@ public class SortedLinkedList<T extends Comparable<T>> implements SortedList<T> 
 
   @Override
   public T get(int index) {
-    return node(index).value;
+    if (index < 0 || index >= size) {
+      throw new IndexOutOfBoundsException();
+    }
+    Node<T> current = head.next;
+    for (int i = 0; i < index; i++) {
+      current = current.next;
+    }
+    return current.value;
   }
 
   @Override
@@ -70,41 +100,5 @@ public class SortedLinkedList<T extends Comparable<T>> implements SortedList<T> 
       current = current.next;
     }
     return false;
-  }
-
-  @Override
-  public int size() {
-    return size;
-  }
-
-  private Node<T> insertBetween(T value, Node<T> before, Node<T> after) {
-    Node<T> node = new Node<>(value);
-    node.prev = before;
-    node.next = after;
-    before.next = node;
-    after.prev = node;
-    size++;
-    return node;
-  }
-
-  private Node<T> node(int index) {
-    if (index < 0 || index >= size) {
-      throw new IndexOutOfBoundsException();
-    }
-    Node<T> current = head.next;
-    for (int i = 0; i < index; i++) {
-      current = current.next;
-    }
-    return current;
-  }
-
-  private static class Node<T> {
-    T value;
-    Node<T> next;
-    Node<T> prev;
-
-    Node(T value) {
-      this.value = value;
-    }
   }
 }

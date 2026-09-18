@@ -3,4 +3,4 @@
 set -e
 cd "$(dirname "$0")/.."
 javac -d out $(find src/main -name "*.java")
-java -cp out listadt.Main
+java -cp out Main

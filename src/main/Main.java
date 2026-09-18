@@ -1,5 +1,3 @@
-package listadt;
-
 /**
  * A runnable demo of the chapter's List ADT arc. One selectionSort, written
  * against the List interface, sorts both an ArrayList and a LinkedList. The

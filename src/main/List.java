@@ -1,5 +1,3 @@
-package listadt;
-
 /**
  * A List is an ordered, indexed collection of elements. Each element keeps the
  * position it is given: the element at index 0 comes before the one at index 1,
