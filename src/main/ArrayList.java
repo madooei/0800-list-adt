@@ -1,5 +1,3 @@
-package listadt;
-
 import java.util.Objects;
 
 /**

@@ -1,5 +1,3 @@
-package listadt;
-
 import java.util.Objects;
 
 /**
@@ -9,11 +7,31 @@ import java.util.Objects;
  */
 public class SortedLinkedList<T extends Comparable<T>> implements SortedList<T> {
 
-  private Node<T> head;   // front sentinel
-  private Node<T> tail;   // back sentinel
-  private int size;       // number of real nodes
+  private Node<T> head;  // front sentinel
+  private Node<T> tail;  // back sentinel
+  private int size;  // number of real nodes
+
+  private static class Node<T> {
+    T value;
+    Node<T> next;
+    Node<T> prev;
+
+    Node(T value) {
+      this.value = value;
+    }
+  }
 
   public SortedLinkedList() {
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
+  }
+
+  @Override
+  public int size() {
+    return size;
+  }
+
+  private Node<T> insertBetween(T value, Node<T> before, Node<T> after) {
     // TODO: Implement me
     throw new UnsupportedOperationException("TODO: Implement me");
   }
@@ -46,31 +64,5 @@ public class SortedLinkedList<T extends Comparable<T>> implements SortedList<T> 
   public boolean remove(T value) {
     // TODO: Implement me
     throw new UnsupportedOperationException("TODO: Implement me");
-  }
-
-  @Override
-  public int size() {
-    // TODO: Implement me
-    throw new UnsupportedOperationException("TODO: Implement me");
-  }
-
-  private Node<T> insertBetween(T value, Node<T> before, Node<T> after) {
-    // TODO: Implement me
-    throw new UnsupportedOperationException("TODO: Implement me");
-  }
-
-  private Node<T> node(int index) {
-    // TODO: Implement me
-    throw new UnsupportedOperationException("TODO: Implement me");
-  }
-
-  private static class Node<T> {
-    T value;
-    Node<T> next;
-    Node<T> prev;
-
-    Node(T value) {
-      this.value = value;
-    }
   }
 }
