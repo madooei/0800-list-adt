@@ -11,7 +11,7 @@ public interface SortedList<T extends Comparable<T>> {
    * Insert a value into the position that keeps this list sorted.
    *
    * @param element the non-null value to insert.
-   * @throws NullPointerException if element is null.
+   * @throws IllegalArgumentException if element is null.
    */
   void add(T element);
 
