@@ -47,7 +47,7 @@ public class SortedLinkedList<T extends Comparable<T>> implements SortedList<T> 
   @Override
   public void add(T value) {
     if (value == null) {
-      throw new NullPointerException();
+      throw new IllegalArgumentException();
     }
     Node<T> current = head.next;
     while (current != tail && current.value.compareTo(value) <= 0) {
