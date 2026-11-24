@@ -33,7 +33,7 @@ code/
 
 There is no build tool and no test suite: testing is introduced later in the course. The script above is all you need.
 
-## What's here
+## Contents
 
 - `list.List<T>` — the documented contract for an ordered, indexed collection: `add`, `remove`, `get`, `set`, `contains`, `indexOf`, `size`.
 - `list.ArrayList<T>` — an array-backed `List`.
